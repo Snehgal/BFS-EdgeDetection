@@ -130,5 +130,5 @@ def generate_image(image_path):
 
 if __name__ == "__main__":
     # Example usage
-    image_path = "D:/Chirag/IIITD/DM_Project/noise.png"
+    image_path = "./testImages/noise.png"
     generate_image(image_path)
