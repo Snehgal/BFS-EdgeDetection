@@ -36,7 +36,7 @@ if __name__ == "__main__":
 The generate_image_grid function will produce a grid of images with starting coordinates ranging from (0, 0) to (500, 500) with steps of 50, and threshold values ranging from 20 to 100 with steps of 20.
 
 ### To Find coordinates in the image
-Change i`image_path` in `mouseHover.py` and run it. On hovering your mouse over the image, the coordinates of your mouse will appear in the output window.
+Change `image_path` in `mouseHover.py` and run it. On hovering your mouse over the image, the coordinates of your mouse will appear in the output window.
 
 
 ## Functions
