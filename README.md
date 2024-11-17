@@ -22,7 +22,7 @@ To generate a single edge-detected image, use the `generate_image` function. Thi
 ```python
 if __name__ == "__main__":
     # Example usage
-    image_path = "D:/Chirag/IIITD/DM_Project/noise.png"
+    image_path = "./testImages/lotus.png"
     generate_image(image_path)
 ```
 
@@ -30,12 +30,11 @@ To generate a grid of edge-detected images with various starting coordinates and
 ```python
 if __name__ == "__main__":
     # Example usage
-    image_path = "D:/Chirag/IIITD/DM_Project/noise.png"
+    image_path = "./testImages/lotus.png"
     generate_image_grid(image_path)
 ```
 
 The generate_image_grid function will produce a grid of images with starting coordinates ranging from (0, 0) to (500, 500) with steps of 50, and threshold values ranging from 20 to 100 with steps of 20.
-
 
 ## Functions
 
