@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from collections import deque
 import matplotlib.pyplot as plt
+import os
 
 def bfs(image, start, threshold):
     rows, cols = image.shape
@@ -37,7 +38,10 @@ def main(image_path, start_coord, threshold):
     
     # Convert the image to grayscale
     grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    
+
+    #apply Gaussian Blur
+    grayscale_image = cv2.GaussianBlur(grayscale_image,(3,3),0)
+
     # Get the image dimensions
     rows, cols = grayscale_image.shape
     
@@ -64,7 +68,7 @@ def main(image_path, start_coord, threshold):
     
     return resized_image  # Return the resized image
 
-def generate_image_grid(image_path):
+def generate_image_grid(image_path, output_size=(2000, 1500), dpi=300):
     images = []
     start_coords = []
     thresholds = []
@@ -96,6 +100,17 @@ def generate_image_grid(image_path):
             ax.axis('off')  # Hide axes for empty subplots
     
     plt.tight_layout()
+
+    output_dir = "./rendersGaussian/"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Extract filename and save
+    image_filename = os.path.basename(image_path)
+    save_path = os.path.join(output_dir, image_filename)
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    
+    print(f"Image grid saved to {save_path}")
+    
     plt.show()
 
 def generate_image(image_path):
@@ -130,5 +145,6 @@ def generate_image(image_path):
 
 if __name__ == "__main__":
     # Example usage
-    image_path = "./testImages/noise.png"
-    generate_image(image_path)
+    image = "gaussian.png"
+    image_path = "./testImages/" + image
+    generate_image_grid(image_path)
